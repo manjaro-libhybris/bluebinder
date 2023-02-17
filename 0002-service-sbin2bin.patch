@@ -1,0 +1,13 @@
+From: Bardia Moshiri <fakeshell@bardia.tech>
+diff -Npur a/bluebinder.service b/bluebinder.service
+--- bluebinder.service	2023-02-17 16:50:45.095645799 +0000
++++ bluebinder.service	2023-02-17 16:50:53.565628074 +0000
+@@ -7,7 +7,7 @@ ConditionPathExists=!/system-update
+ [Service]
+ Type=notify
+ ExecStartPre=/usr/bin/waitforservice init.svc.*bluetooth*
+-ExecStart=/usr/sbin/bluebinder
++ExecStart=/usr/bin/bluebinder
+ ExecStartPost=/usr/bin/droid/bluebinder_post.sh
+ Restart=always
+ TimeoutStartSec=60

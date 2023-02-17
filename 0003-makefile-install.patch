@@ -1,0 +1,18 @@
+From: Bardia Moshiri <fakeshell@bardia.tech>
+diff -Npur a/Makefile b/Makefile
+--- Makefile	2023-02-17 17:14:06.784486710 +0000
++++ Makefile	2023-02-17 17:19:41.524103000 +0000
+@@ -14,8 +14,12 @@ bluebinder: bluebinder.c
+ 	$(CC) $(CFLAGS) -Wall -flto $^ `pkg-config --cflags --libs $(DEPEND_LIBS)` -DUSE_SYSTEMD=$(USE_SYSTEMD) -o $@
+ 
+ install:
+-	mkdir -p $(DESTDIR)/usr/bin
++	mkdir -p $(DESTDIR)/usr/bin/droid
+ 	cp bluebinder $(DESTDIR)/usr/bin
++	cp bluebinder_post.sh $(DESTDIR)/usr/bin/droid
++	cp bluebinder_wait.sh $(DESTDIR)/usr/bin/droid
++	mkdir -p $(DESTDIR)/usr/lib/systemd/system
++	cp bluebinder.service $(DESTDIR)/usr/lib/systemd/system
+ 
+ clean:
+ 	rm -f bluebinder

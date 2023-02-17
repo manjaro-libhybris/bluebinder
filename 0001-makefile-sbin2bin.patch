@@ -1,0 +1,15 @@
+From: Bardia Moshiri <fakeshell@bardia.tech>
+diff -Npur a/Makefile b/Makefile
+--- Makefile	2023-02-17 16:54:22.145191948 +0000
++++ Makefile	2023-02-17 16:55:20.175170043 +0000
+@@ -14,8 +14,8 @@ bluebinder: bluebinder.c
+ 	$(CC) $(CFLAGS) -Wall -flto $^ `pkg-config --cflags --libs $(DEPEND_LIBS)` -DUSE_SYSTEMD=$(USE_SYSTEMD) -o $@
+ 
+ install:
+-	mkdir -p $(DESTDIR)/usr/sbin
+-	cp bluebinder $(DESTDIR)/usr/sbin
++	mkdir -p $(DESTDIR)/usr/bin
++	cp bluebinder $(DESTDIR)/usr/bin
+ 
+ clean:
+ 	rm -f bluebinder
